@@ -1,15 +1,38 @@
-//Primitive value: string, number, boolean, null, undefined
 
+const puzzleEl = document.querySelector('#puzzle')
+const guessesEl = document.querySelector('#guesses')
+const game1 = new Hangman('car parts', 2)
 
-//Object: myObject --> Object.prototype --> null
-//Array: myArray --> Arraty.prototype --> Object.prototype --> null
-//Function: myFunc --> Function.prototype --> Object.prototype --> null
-//String: myString --> String.prototype --> Object.prototype --> null
-//Number: myNumber --> Number.prototype --> Object.prototype --> null
-//Boolean: myBoolean --> Boolean.prototype --> Object.prototype --> null
+puzzleEl.textContent = game1.puzzle
+guessesEl.textContent = game1.statusMessage
 
-const product = "Computer"
-console.log(product.split(''))
+window.addEventListener('keypress', (e) => {
+    const guess = String.fromCharCode(e.charCode)
+    game1.makeGuess(guess)
+    puzzleEl.textContent = game1.puzzle
+    guessesEl.textContent = game1.statusMessage
+})
 
-const otherProducts = new String('Phone')
-console.log(otherProducts)
+getPuzzle('2').then((puzzle) => {
+    console.log(puzzle)
+}).catch((err) => {
+    console.log(`Error: ${err}`)
+})
+
+getCountry('US').then((country) => {
+    console.log(country.name) 
+}).catch((err) => {
+    console.log(`Error: ${err}`)
+})
+
+// fetch('http://puzzle.mead.io/puzzle', {}).then((response) => {
+//     if (response.status === 200) {
+//         return response.json()
+//     } else {
+//         throw new Error('Unable to fetch the puzzle')
+//     }
+// }).then((data) => {
+//     console.log(data.puzzle)
+// }).catch((err) => {
+//     console.log(err)
+// })

@@ -1,26 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="/styles/styles.css" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Notes App</title>
 </head>
 <body>
-    <h1>Notes App</h1>
-    <h6>Take notes and never forget</h6>
-    <input id='search-text' type='text'>
-    <select id='filter-by'>
-        <option value='byEdited'>Sort by Last Edited</option>
-        <option value='byCreated'>Sort by Recently Created</option>
-        <option value='alphabetical'>Sort alphabetically</option>
-    </select>
-    <div id='notes'>
+    <header class="header">
+        <div class="container">
+            <h1 class="header__title">Notes App</h1>
+            <h2 class="header__subtitle">Take notes and never forget</h6>
+        </div>
+    </header>
+    <div class="actions">
+        <div class="actions__container">
+            <input id='search-text' type='text' class="input" placeholder="Filter notes">
+            <select id='filter-by' class="dropdown">
+                <option value='byEdited'>Sort by Last Edited</option>
+                <option value='byCreated'>Sort by Recently Created</option>
+                <option value='alphabetical'>Sort alphabetically</option>
+            </select>
+        </div>
     </div>
-    <button id='create-note'>Create Note</button>
-        <script src="http://wzrd.in/standalone/uuid%2Fv4@latest"></script>
+    <div class="container">
+        <div id='notes'></div>
+        <button id='create-note' class="button">Create Note</button>
+    </div>
+        <script src="/scripts/uuidv4.js"></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js'></script>
-        <script src='notes-functions.js'></script>
-        <script src='notes-app.js'></script>
+        <script src='/scripts/notes-functions.js'></script>
+        <script src='/scripts/notes-app.js'></script>
 </body>
 </html>
